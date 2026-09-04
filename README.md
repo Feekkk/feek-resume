@@ -1,77 +1,94 @@
-# Welcome to your Lovable project
+# Feek Resume
 
-## Project info
+A single-page professional portfolio you can clone and customize. It turns resume content into an interactive site with a hero, bio, experience, education, and supporting sections—built as a static React app you can host anywhere.
 
-**URL**: https://lovable.dev/projects/6fd12b81-631e-49d3-83b3-86e8b3fab3ae
+Sample content in the repo is placeholder data (Maya Chen). Replace it with your own details before you ship.
 
-## How can I edit this code?
+## Stack
 
-There are several ways of editing your application.
+- **React 18** + **TypeScript**
+- **Vite 5** (dev server on port `8080`)
+- **Tailwind CSS 4** + **shadcn/ui**
+- **GSAP** and **Framer Motion** for motion
+- **React Router** for `/`, `/style-guide`, and 404
+- **next-themes** for light / dark / system theme
 
-**Use Lovable**
+Product intent, section behavior, and accessibility goals are documented in [SPECIFICATION.md](./SPECIFICATION.md).
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/6fd12b81-631e-49d3-83b3-86e8b3fab3ae) and start prompting.
+## Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- Hero with name, title, portrait, and contact cues
+- Bio and skills
+- Experience and education from a typed data file
+- Snap-scroll layout, skip link, back-to-top, and footer
+- Theme toggle (system default)
+- Style guide at `/style-guide`
+- Error boundary around the app shell
 
-**Use your preferred IDE**
+## Prerequisites
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Node.js 18+ (LTS recommended)
+- npm (this repo includes `package-lock.json`)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Getting started
 
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone <your-fork-or-this-repo>
+cd feek-resume
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Open [http://localhost:8080](http://localhost:8080).
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+| Script | Purpose |
+| --- | --- |
+| `npm run dev` | Local development |
+| `npm run build` | Production build to `dist/` |
+| `npm run preview` | Serve the production build |
+| `npm run lint` | ESLint |
 
-**Use GitHub Codespaces**
+## Customize your content
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+All portfolio copy lives in one place:
 
-## What technologies are used for this project?
+[`src/data/portfolio-data.ts`](./src/data/portfolio-data.ts)
 
-This project is built with:
+Update `personalInfo`, `experience`, `education`, and related exports. Shapes are defined in [`src/types/portfolio.ts`](./src/types/portfolio.ts).
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Also update HTML metadata so search and social previews match you:
 
-## How can I deploy this project?
+[`index.html`](./index.html) — `<title>`, description, Open Graph, Twitter, and canonical URL.
 
-Simply open [Lovable](https://lovable.dev/projects/6fd12b81-631e-49d3-83b3-86e8b3fab3ae) and click on Share -> Publish.
+Swap the avatar URL in `personalInfo.avatar` (or add a file under `public/` and point to it). Put static assets in `public/`.
 
-## Can I connect a custom domain to my Lovable project?
+## Project layout
 
-Yes, you can!
+```
+src/
+  data/portfolio-data.ts    # content
+  types/portfolio.ts        # TypeScript models
+  pages/Index.tsx           # home composition
+  pages/StyleGuide.tsx      # design tokens / components
+  pages/NotFound.tsx
+  components/
+    Layout.tsx
+    sections/               # Hero, Bio, Content
+    ui/                     # shadcn primitives
+  hooks/
+  App.tsx
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+Path alias: `@/` maps to `src/` (see `vite.config.ts`).
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Routes
 
-# ./tailwind-plus folder:
+| Path | Page |
+| --- | --- |
+| `/` | Portfolio |
+| `/style-guide` | Style guide |
+| `*` | 404 |
 
-The tailwind-plus folder contains tailwind components and themes to be used as inspiration for the project. DO NOT REMOVE THE FOLDER UNLESS SPECIFICALLY TOLD TO DO SO
+## License
+
+Private project unless you add a license file. Fork and adapt as you like for your own resume site.
