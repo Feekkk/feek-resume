@@ -1,9 +1,9 @@
-import { experience, education, languages, skillCategories } from "@/data/portfolio-data";
+import { experience, education } from "@/data/portfolio-data";
 import { motion } from "framer-motion";
 
 /**
  * ContentSection Component
- * Two-column layout with Work Experience (left) and Education/Languages/Skills (right)
+ * Two-column layout with Work Experience (left) and Education (right)
  */
 
 function formatDateRange(start: string, end: string | null): string {
@@ -45,7 +45,7 @@ export default function ContentSection() {
           ))}
         </motion.div>
 
-        {/* Right Column: Education, Languages, Skills */}
+        {/* Right Column: Education */}
         <motion.div
           className="space-y-12"
           initial={{ opacity: 0, y: 20 }}
@@ -70,46 +70,6 @@ export default function ContentSection() {
                     {edu.institution}, {edu.degree} in {edu.field}
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Languages */}
-          <div>
-            <h3 className="text-orange uppercase tracking-wide mb-8 font-['Rubik'] text-lg font-medium">
-              LANGUAGES
-            </h3>
-            {languages.map((lang) => (
-              <div key={lang.language} className="grid grid-cols-[150px_1fr] gap-6 mb-8 last:mb-0">
-                {/* Left: Language */}
-                <div className="text-orange font-['Rubik'] text-base font-medium uppercase">
-                  {lang.language}
-                </div>
-
-                {/* Right: Proficiency */}
-                <div className="font-['Rubik'] text-base text-foreground">
-                  {lang.proficiency}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Skills */}
-          <div>
-            <h3 className="text-orange uppercase tracking-wide mb-8 font-['Rubik'] text-lg font-medium">
-              SKILLS
-            </h3>
-            {skillCategories.map((category) => (
-              <div key={category.category} className="grid grid-cols-[150px_1fr] gap-6 mb-8 last:mb-0">
-                {/* Left: Category */}
-                <div className="text-orange font-['Rubik'] text-base font-medium uppercase">
-                  {category.category}
-                </div>
-
-                {/* Right: Skills */}
-                <p className="font-['Rubik'] text-base text-foreground leading-relaxed">
-                  {category.skills}
-                </p>
               </div>
             ))}
           </div>

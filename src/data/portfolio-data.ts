@@ -9,6 +9,7 @@ import type {
   Education,
   Language,
   SkillCategory,
+  Project,
 } from "@/types/portfolio";
 
 // ===== Portfolio Data =====
@@ -103,17 +104,73 @@ export const languages: Language[] = [
   { language: "English", proficiency: "Fluent" },
 ];
 
+export const projects: Project[] = [
+  {
+    id: "proj-1",
+    name: "NIMS",
+    description: "Nexcheck Inventory Management System for UniKL RCMP.",
+    techStack: ["React", "Node.js", "MySQL"],
+    status: "active",
+  },
+  {
+    id: "proj-2",
+    name: "UniFA",
+    description: "University Financial Aids System for student aid workflows.",
+    techStack: ["React", "Express", "MySQL"],
+    status: "active",
+  },
+  {
+    id: "proj-3",
+    name: "UniKL Web Services",
+    description: "University sites and PLESK hosting for campus web services.",
+    techStack: ["WordPress", "PLESK", "Azure"],
+    status: "active",
+  },
+  {
+    id: "proj-4",
+    name: "AI Research",
+    description: "Freelance RAG and LLM experiments for applied research.",
+    techStack: ["TypeScript", "OpenRouter"],
+    status: "active",
+  },
+];
+
 export const skillCategories: SkillCategory[] = [
   {
     category: "Frontend Development",
-    skills: "React, Next.js, Tailwind CSS, TypeScript, HTML, CSS",
+    skills: [
+      { name: "React", slug: "react" },
+      { name: "Next.js", slug: "nextdotjs" },
+      { name: "Tailwind CSS", slug: "tailwindcss" },
+      { name: "TypeScript", slug: "typescript" },
+      { name: "HTML", slug: "html5" },
+      { name: "CSS", slug: "css" },
+    ],
   },
   {
     category: "Backend Development",
-    skills: "Node.js, Express, MySQL, PostgreSQL, Supabase, Docker, Azure, PLESK Hosting, WordPress",
+    skills: [
+      { name: "Node.js", slug: "nodedotjs" },
+      { name: "Express", slug: "express" },
+      { name: "MySQL", slug: "mysql" },
+      { name: "PostgreSQL", slug: "postgresql" },
+      { name: "Supabase", slug: "supabase" },
+      { name: "Docker", slug: "docker" },
+      { name: "Azure", slug: "microsoftazure" },
+      { name: "PLESK", slug: "plesk" },
+      { name: "WordPress", slug: "wordpress" },
+    ],
   },
   {
     category: "Tools & Technologies",
-    skills: "Tan-Stack Query, Git, GitHub, VSCode, Figma, Cursor, OpenRouter, Cursor API",
+    skills: [
+      { name: "TanStack Query", slug: "reactquery" },
+      { name: "Git", slug: "git" },
+      { name: "GitHub", slug: "github" },
+      { name: "VS Code", slug: "visualstudiocode" },
+      { name: "Figma", slug: "figma" },
+      { name: "Cursor", slug: "cursor" },
+      { name: "OpenRouter", slug: "openrouter" },
+    ],
   },
 ];

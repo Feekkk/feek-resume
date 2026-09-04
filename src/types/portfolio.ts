@@ -102,7 +102,12 @@ export interface Language {
   proficiency: string;
 }
 
+export interface SkillItem {
+  name: string;
+  slug: string;
+}
+
 export interface SkillCategory {
   category: string;
-  skills: string;
+  skills: SkillItem[];
 }
