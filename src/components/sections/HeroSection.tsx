@@ -11,7 +11,7 @@ import { motion } from "framer-motion";
 export default function HeroSection() {
   // Split name into first and last
   const [firstName, lastName] = personalInfo.name.split(" ");
-  const phone = personalInfo.phone;
+  const githubLabel = personalInfo.github.replace(/^https?:\/\//, "");
 
   return (
     <div className="w-full max-w-7xl mx-auto px-8 md:px-12 py-16">
@@ -60,10 +60,12 @@ export default function HeroSection() {
           className="flex flex-col space-y-0.5 md:space-y-1 text-xs md:text-base text-orange text-left font-['Rubik']"
         >
           <a
-            href={`tel:${phone}`}
+            href={personalInfo.github}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:opacity-80 transition-opacity"
           >
-            {phone}
+            {githubLabel}
           </a>
           <div>{personalInfo.location.city}</div>
           <a

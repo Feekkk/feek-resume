@@ -10,6 +10,7 @@ export interface PersonalInfo {
   website: string;
   email: string;
   phone: string;
+  github: string;
   avatar: string;
   bio: string;
   skills: string;
@@ -72,8 +73,15 @@ export interface Speaking {
 
 export interface Project {
   id: string;
+  slug: string;
   name: string;
+  fullName: string;
   description: string;
+  overview: string;
+  role: string;
+  year: string;
+  org: string;
+  highlights: string[];
   techStack: string[];
   liveUrl?: string;
   githubUrl?: string;
